@@ -247,7 +247,7 @@ func (api *CustomerAPI) UpdateCustomer(c *fiber.Ctx) error {
 	}
 
 	// تحديث العميل
-	customer, err := api.service.UpdateCustomer(uint(id), &req)
+	_, err = api.service.UpdateCustomer(uint(id), &req)
 	if err != nil {
 		if err.Error() == "customer not found" {
 			return c.Status(fiber.StatusNotFound).JSON(fiber.Map{

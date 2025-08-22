@@ -101,9 +101,10 @@ type CustomerFilter struct {
 
 // GovernorateResponse - استجابة المحافظة
 type GovernorateResponse struct {
-	Code   string `json:"code"`
-	NameAr string `json:"name_ar"`
-	NameEn string `json:"name_en"`
+	Code      string   `json:"code"`
+	NameAr    string   `json:"name_ar"`
+	NameEn    string   `json:"name_en"`
+	Districts []string `json:"districts"`
 }
 
 // DistrictResponse - استجابة المنطقة

@@ -4,38 +4,39 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Build outputs
+# Angular
+.angular/
 dist/
-build/
+tmp/
+out-tsc/
+
+# Go
 *.exe
+*.exe~
 *.dll
 *.so
 *.dylib
+*.test
+*.out
+go.work
 
-# Environment files
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-# IDE files
+# IDE
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
 
-# OS files
+# OS
 .DS_Store
 Thumbs.db
 
 # Logs
-logs/
+logs
 *.log
 
 # Runtime data
-pids/
+pids
 *.pid
 *.seed
 *.pid.lock
@@ -63,16 +64,22 @@ jspm_packages/
 
 # dotenv environment variables file
 .env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
-# Go specific
-*.exe
-*.exe~
-*.dll
-*.so
-*.dylib
-*.test
-*.out
-go.work
+# Build outputs
+build/
+dist/
+
+# Cache directories
+.cache/
+.parcel-cache/
+
+# Temporary files
+*.tmp
+*.temp
 
 # Database
 *.db
@@ -82,9 +89,6 @@ go.work
 uploads/
 public/uploads/
 
-# Docker
-.dockerignore
-
-# Temporary files
-tmp/
-temp/ 
+# Backend specific
+backend/uploads/
+backend/tmp/ 

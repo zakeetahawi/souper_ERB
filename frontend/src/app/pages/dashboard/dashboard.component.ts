@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
 import { AuthService } from '../../core/auth/auth.service';
 
 @Component({
@@ -19,7 +21,8 @@ import { AuthService } from '../../core/auth/auth.service';
     MatIconModule,
     MatToolbarModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    MatMenuModule
   ],
   template: `
     <mat-sidenav-container class="sidenav-container">
@@ -257,7 +260,7 @@ import { AuthService } from '../../core/auth/auth.service';
   `]
 })
 export class DashboardComponent {
-  isHandset$ = false; // Simplified for now
+  isHandset$: Observable<boolean> = new Observable<boolean>(observer => observer.next(false)); // Simplified for now
 
   constructor(
     private authService: AuthService,

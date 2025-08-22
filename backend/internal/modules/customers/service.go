@@ -207,9 +207,10 @@ func (s *CustomerService) GetGovernorates() ([]GovernorateResponse, error) {
 	responses := make([]GovernorateResponse, len(governorates))
 	for i, gov := range governorates {
 		responses[i] = GovernorateResponse{
-			Code:   gov.Code,
-			NameAr: gov.NameAr,
-			NameEn: gov.NameEn,
+			Code:      gov.Code,
+			NameAr:    gov.NameAr,
+			NameEn:    gov.NameEn,
+			Districts: gov.Districts,
 		}
 	}
 

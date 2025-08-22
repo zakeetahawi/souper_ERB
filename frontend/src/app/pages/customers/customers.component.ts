@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -22,6 +24,7 @@ import { AuthService } from '../../core/auth/auth.service';
   standalone: true,
   imports: [
     CommonModule,
+    FormsModule,
     MatCardModule,
     MatButtonModule,
     MatIconModule,
@@ -327,7 +330,7 @@ import { AuthService } from '../../core/auth/auth.service';
   `]
 })
 export class CustomersComponent implements OnInit {
-  isHandset$ = false; // Simplified for now
+  isHandset$: Observable<boolean> = new Observable<boolean>(observer => observer.next(false)); // Simplified for now
   searchTerm = '';
   selectedGovernorate = '';
   selectedType = '';

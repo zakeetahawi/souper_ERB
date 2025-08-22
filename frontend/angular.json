@@ -82,10 +82,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "elkhawaga-erp:build:production"
+              "buildTarget": "elkhawaga-erp:build:production"
             },
             "development": {
-              "browserTarget": "elkhawaga-erp:build:development"
+              "buildTarget": "elkhawaga-erp:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -93,7 +93,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "elkhawaga-erp:build"
+            "buildTarget": "elkhawaga-erp:build"
           }
         },
         "test": {
