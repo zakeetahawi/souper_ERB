@@ -1,0 +1,68 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: elkhawaga-postgres
+    environment:
+      POSTGRES_DB: zakee_erp
+      POSTGRES_USER: erp_user
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ../migrations/0001_init.sql:/docker-entrypoint-initdb.d/0001_init.sql
+    networks:
+      - elkhawaga-network
+
+  redis:
+    image: redis:7-alpine
+    container_name: elkhawaga-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - elkhawaga-network
+
+  backend:
+    build:
+      context: ../../backend
+      dockerfile: Dockerfile
+    container_name: elkhawaga-backend
+    environment:
+      - DB_HOST=postgres
+      - REDIS_HOST=redis
+      - APP_ENV=development
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+      - redis
+    volumes:
+      - ../../backend:/app
+      - /app/go.sum
+    networks:
+      - elkhawaga-network
+
+  frontend:
+    build:
+      context: ../../frontend
+      dockerfile: Dockerfile
+    container_name: elkhawaga-frontend
+    ports:
+      - "4200:4200"
+    volumes:
+      - ../../frontend:/app
+      - /app/node_modules
+    networks:
+      - elkhawaga-network
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  elkhawaga-network:
+    driver: bridge 
