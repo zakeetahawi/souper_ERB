@@ -5,10 +5,20 @@
 /home/zakee/ERP_ELKHAWAGA/
 ```
 
+## 🌐 الريبو الرسمي
+```
+https://github.com/zakeetahawi/souper_ERB.git
+```
+
 ## 🚀 كيفية البدء
 
 ### 1. الانتقال للمجلد
 ```bash
+# من الريبو الرسمي
+git clone https://github.com/zakeetahawi/souper_ERB.git
+cd souper_ERB
+
+# أو من المسار المحلي
 cd /home/zakee/ERP_ELKHAWAGA/
 ```
 

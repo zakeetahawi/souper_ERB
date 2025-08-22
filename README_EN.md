@@ -42,8 +42,8 @@ A comprehensive Enterprise Resource Planning (ERP) system built with Go (Backend
 
 ```bash
 # Clone the repository
-git clone <repository-url>
-cd ERP_ELKHAWAGA
+git clone https://github.com/zakeetahawi/souper_ERB.git
+cd souper_ERB
 
 # Complete setup
 make setup
@@ -56,8 +56,8 @@ make dev
 
 ```bash
 # Clone the repository
-git clone <repository-url>
-cd ERP_ELKHAWAGA
+git clone https://github.com/zakeetahawi/souper_ERB.git
+cd souper_ERB
 
 # Setup database
 make create-db
@@ -104,7 +104,7 @@ make status        # Check service status
 ## 📁 Project Structure
 
 ```
-ERP_ELKHAWAGA/
+souper_ERB/
 ├── backend/                 # Backend (Go)
 │   ├── cmd/server/         # Application entry point
 │   ├── internal/           # Internal packages
